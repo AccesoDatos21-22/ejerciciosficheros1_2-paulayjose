@@ -25,19 +25,25 @@ public class FicherosTexto implements InterfazFicherosTexto{
 	}
 
 	@Override
-	public int contarCaracteres(String rutaFichero) {
+	public int contarCaracteres(String rutaFichero) {	
+		
+		return 0;
+	}
+
+	@Override
+	public int contarLineas(String rutaFichero) {
 			
-		FileReader fr = null;
-		int caracter = 0;
-		int res = 0;
+		BufferedReader br = null;
+		int res = 1;
+		String linea = null;
 			
 		try {
-			fr = new FileReader(new File(rutaFichero));
-			caracter = fr.read();
-						
-			while (caracter != -1) {
+			br = new BufferedReader(new FileReader (new File(rutaFichero)));
+			linea = br.readLine();
+				
+			while (linea != null) {
 				res++;
-				caracter = fr.read();
+				linea=br.readLine();
 			}
 		}
 		catch (FileNotFoundException e) {
@@ -48,20 +54,14 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		}
 		finally {
 			try {
-				fr.close();
+				br.close();
 			}
 			catch (IOException e) {
 				System.err.println(e.getMessage());
 			}
 		}
-			return res;
-		}
-
-	@Override
-	public int contarLineas(String rutaFichero) {
-		
-		return 0;
-	}
+		return res;
+}
 
 	@Override
 	public int contarPalabras(String rutaFichero) {

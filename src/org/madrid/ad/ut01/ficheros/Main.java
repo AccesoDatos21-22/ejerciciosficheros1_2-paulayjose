@@ -6,14 +6,15 @@ public class Main {
 		
 		String archivo = "..\\ejerciciosficheros1_2-paulayjose\\src\\org\\madrid\\ad\\ut01\\ficheros\\assets\\el_quijote.txt";
 		
-		System.out.println("Ejercicio 3");
+		System.out.println("Ejercicio 5");
 		
-		FicherosTexto tres = new FicherosTexto();
+		FicherosTexto cinco = new FicherosTexto();
 		
-		System.out.println("El número de caracteres que tiene el archivo son: "+tres.contarCaracteres(archivo));
+		System.out.println("El número de líneas que tiene el archivo son: "+cinco.contarLineas(archivo));
 		
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
-		System.out.println();	
+		System.out.println();
+	
 	}
 }
