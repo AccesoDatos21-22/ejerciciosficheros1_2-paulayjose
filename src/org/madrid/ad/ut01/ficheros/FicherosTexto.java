@@ -51,37 +51,35 @@ public class FicherosTexto implements InterfazFicherosTexto {
 	@Override
 	public int palabraMasLarga(String rutaFichero) {
 
-		String palabraLarga = "";
+		return 0;
+
+	}
+
+	@Override
+	public int frecuenciaVocales(String rutaFichero) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int frecuenciaLetras(String rutaFichero) {
+
 		BufferedReader br = null;
+		int frecuencia = 0;
 
 		try {
 
-			String linea;
-
-			String palabraComparar;
-
 			br = new BufferedReader(new FileReader(rutaFichero));
 
-			String[] palabras;
+			String linea;
 
 			while ((linea = br.readLine()) != null) {
 
-				linea = linea.replaceAll("[., ,, ;, :, -, ¿, ?, !, ¡]", " ");
+				// Creemos que no nos coge los parentesis debido a que hemos remplazado bastantes cosas
+				linea = linea.replaceAll("[., ,, ;,  :, -, ', ?, ¿, !, ¡, (, )]", "").toLowerCase();
 
-				palabras = linea.split(" ");
-
-				for (int i = 0; i < palabras.length; i++) {
-
-					palabraComparar = palabras[i];
-
-					if (palabraComparar.length() > palabraLarga.length()) {
-						palabraLarga = palabraComparar;
-					}
-				}
+				frecuencia += linea.length();
 			}
-
-			System.out.println(
-					"La palabra más larga es " + palabraLarga + " y tiene " + palabraLarga.length() + " caracteres.");
 
 		} catch (FileNotFoundException e) {
 			System.err.println("El fichero no ha sido encontrado");
@@ -95,20 +93,7 @@ public class FicherosTexto implements InterfazFicherosTexto {
 			}
 		}
 
-		return 1;
-
-	}
-
-	@Override
-	public int frecuenciaVocales(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int frecuenciaLetras(String rutaFichero) {
-
-		return 0;
+		return frecuencia;
 
 	}
 
