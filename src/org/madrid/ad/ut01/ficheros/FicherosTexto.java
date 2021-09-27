@@ -38,22 +38,50 @@ public class FicherosTexto implements InterfazFicherosTexto {
 	@Override
 	public int contarPalabras(String rutaFichero) {
 
+		return 0;
+
+	}
+
+	@Override
+	public int palabrasPentavocalica(String rutaFichero) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int palabraMasLarga(String rutaFichero) {
+
+		String palabraLarga = "";
 		BufferedReader br = null;
-		int palabrasTotales = 0;
 
 		try {
 
+			String linea;
+
+			String palabraComparar;
+
 			br = new BufferedReader(new FileReader(rutaFichero));
 
-			String linea;
+			String[] palabras;
 
 			while ((linea = br.readLine()) != null) {
 
-				StringTokenizer st = new StringTokenizer(linea);
+				linea = linea.replaceAll("[., ,, ;, :, -, ¿, ?, !, ¡]", " ");
 
-				palabrasTotales = palabrasTotales + st.countTokens();
+				palabras = linea.split(" ");
 
+				for (int i = 0; i < palabras.length; i++) {
+
+					palabraComparar = palabras[i];
+
+					if (palabraComparar.length() > palabraLarga.length()) {
+						palabraLarga = palabraComparar;
+					}
+				}
 			}
+
+			System.out.println(
+					"La palabra más larga es " + palabraLarga + " y tiene " + palabraLarga.length() + " caracteres.");
 
 		} catch (FileNotFoundException e) {
 			System.err.println("El fichero no ha sido encontrado");
@@ -67,20 +95,7 @@ public class FicherosTexto implements InterfazFicherosTexto {
 			}
 		}
 
-		return palabrasTotales;
-
-	}
-
-	@Override
-	public int palabrasPentavocalica(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int palabraMasLarga(String rutaFichero) {
-
-		return 0;
+		return 1;
 
 	}
 

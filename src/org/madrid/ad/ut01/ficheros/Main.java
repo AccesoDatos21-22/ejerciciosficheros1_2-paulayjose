@@ -9,10 +9,10 @@ public class Main {
 		FicherosTexto ej = new FicherosTexto();
 		String ruta = "src\\org\\madrid\\ad\\ut01\\ficheros\\assets\\el_quijote.txt";
 		
-		//Ejercicio 6
-				System.out.println("\n------------------------------------- \nEjercicio 6\n");
+		//Ejercicio 8
+				System.out.println("\n------------------------------------- \nEjercicio 8\n");
 				
-				System.out.println("El fichero tiene " + ej.contarPalabras(ruta) + " palabras.");		
+				ej.palabraMasLarga(ruta);
 	}
 
 }
