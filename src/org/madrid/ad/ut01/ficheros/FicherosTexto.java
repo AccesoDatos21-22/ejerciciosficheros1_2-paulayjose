@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.madrid.ad.ut01.ficheros.interfaces.InterfazFicherosTexto;
 
@@ -42,13 +44,15 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		return 0;
 	}
 
-	@Override
-	public int palabrasPentavocalica(String rutaFichero) {
+	@Override //No hemos conseguido eliminar la repetición de palabras que terminaban con "," ";" "." 
+	public int palabrasPentavocalica(String rutaFichero) { //Pero si eliminar las palabras exactamente iguales.
 		BufferedReader br = null;
 		int res = 0;
 		String linea = null;
 		String[] palabras = null;
+		ArrayList<String> penta = new ArrayList<String>();
 		boolean sino = false;
+		
 		
 		try {
 			br = new BufferedReader(new FileReader (new File(rutaFichero)));
@@ -57,14 +61,28 @@ public class FicherosTexto implements InterfazFicherosTexto{
 			while (linea != null) {
 				palabras = linea.split(" "); //Separamos cada palabra con el método split(" ") en un array.
 				
-				for (int i=0; i<palabras.length; i++) { //Recorremos el array palabras 
+				for (int i=0; i<palabras.length; i++) { //Recorremos el array palabras
+					sino = false; //Al inicio de cada ciclo asignamos false a la variable booleana.
 					if (palabras[i].toLowerCase().contains("a") && palabras[i].toLowerCase().contains("e") && palabras[i].toLowerCase().contains("i") && palabras[i].toLowerCase().contains("o") && palabras[i].toLowerCase().contains("u")){
-						sino = true; //Si la palabra contiene todas las vocales pasaremos la variable booleana a true
-					}
-					if (sino) { //Si la variable es true...
-						System.out.println(palabras[i]);
-						res++; //Sumaremos al contador +1
-						sino = false; //Volveremos a poner la variable booleana a false
+					//Si la palabra contiene todas las vocales...
+						if (penta.isEmpty()) { //La añadimos si nuestro arrayList está vacío
+							penta.add(palabras[i]);
+							res++; //La contabilizamos.
+							System.out.println(palabras[i]); //Y la mostramos
+						}
+						else {
+							for (int j = 0; j < penta.size(); j++) { //Si la palabra coincide con alguna almacenada la descartamos.
+								if (palabras[i].equalsIgnoreCase(penta.get(j))) {
+									sino = true;
+									break;
+								}
+							}
+							if (!(sino)) {
+								penta.add(palabras[i]); //La añadimos al arrayList
+								System.out.println(palabras[i]); //La mostramos
+								res++; //Y después la contamos.
+							}
+						}
 					}
 				}
 				linea=br.readLine(); //Leemos la siguiente línea.
