@@ -44,48 +44,45 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		return 0;
 	}
 
-	@Override //No hemos conseguido eliminar la repetición de palabras que terminaban con "," ";" "." 
-	public int palabrasPentavocalica(String rutaFichero) { //Pero si eliminar las palabras exactamente iguales.
-		BufferedReader br = null;
-		int res = 0;
-		String linea = null;
-		String[] palabras = null;
-		ArrayList<String> penta = new ArrayList<String>();
-		boolean sino = false;
+	@Override 
+	public int palabrasPentavocalica(String rutaFichero) {
 		
+		return 0;
+	}
+
+	@Override
+	public int palabraMasLarga(String rutaFichero) {
+		
+		return 0;
+	}
+
+	@Override
+	public int frecuenciaVocales(String rutaFichero) {
+		FileReader fr = null;
+		int res = 0;
+		int caracter = 0;
+		char car;
 		
 		try {
-			br = new BufferedReader(new FileReader (new File(rutaFichero)));
-			linea = br.readLine();
+			fr = new FileReader(new File (rutaFichero));
 			
-			while (linea != null) {
-				palabras = linea.split(" "); //Separamos cada palabra con el método split(" ") en un array.
-				
-				for (int i=0; i<palabras.length; i++) { //Recorremos el array palabras
-					sino = false; //Al inicio de cada ciclo asignamos false a la variable booleana.
-					if (palabras[i].toLowerCase().contains("a") && palabras[i].toLowerCase().contains("e") && palabras[i].toLowerCase().contains("i") && palabras[i].toLowerCase().contains("o") && palabras[i].toLowerCase().contains("u")){
-					//Si la palabra contiene todas las vocales...
-						if (penta.isEmpty()) { //La añadimos si nuestro arrayList está vacío
-							penta.add(palabras[i]);
-							res++; //La contabilizamos.
-							System.out.println(palabras[i]); //Y la mostramos
-						}
-						else {
-							for (int j = 0; j < penta.size(); j++) { //Si la palabra coincide con alguna almacenada la descartamos.
-								if (palabras[i].equalsIgnoreCase(penta.get(j))) {
-									sino = true;
-									break;
-								}
-							}
-							if (!(sino)) {
-								penta.add(palabras[i]); //La añadimos al arrayList
-								System.out.println(palabras[i]); //La mostramos
-								res++; //Y después la contamos.
-							}
-						}
-					}
+			caracter = fr.read();
+			car = (char) caracter;
+			Character.toLowerCase(car);
+			
+			while (caracter != -1) {
+				if (car == 'a' || car == 'e' || car == 'i' || car == 'o' || car == 'u') {
+					res++;
 				}
-				linea=br.readLine(); //Leemos la siguiente línea.
+				else if (car == 'á' || car == 'é' || car == 'í' || car == 'ó' || car == 'ú') {
+					res++;
+				} //Creemos que no nos funciona la selección de vocales con tilde pese a incluirlas.
+				else if (car == 'à' || car == 'è' || car == 'ì' || car == 'ò' || car == 'ù') {
+					res++;
+				}
+				caracter = fr.read();
+				car = (char) caracter;
+				Character.toLowerCase(car);
 			}
 		}
 		catch (FileNotFoundException e) {
@@ -94,32 +91,23 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
+		catch (Exception e){
+			System.err.println(e.getMessage());
+		}
 		finally {
 			try {
-				br.close();
+				fr.close();
 			}
 			catch (IOException e) {
-				System.err.println(e.getMessage());
+				System.err.println(e.getMessage());;
 			}
 		}
 		return res;
 	}
 
 	@Override
-	public int palabraMasLarga(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int frecuenciaVocales(String rutaFichero) {
-		
-		return 0;
-	}
-
-	@Override
 	public int frecuenciaLetras(String rutaFichero) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 }
