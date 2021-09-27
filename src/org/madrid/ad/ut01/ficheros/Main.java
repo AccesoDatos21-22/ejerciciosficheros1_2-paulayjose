@@ -6,15 +6,16 @@ public class Main {
 		
 		String archivo = "..\\ejerciciosficheros1_2-paulayjose\\src\\org\\madrid\\ad\\ut01\\ficheros\\assets\\el_quijote.txt";
 		
-		System.out.println("Ejercicio 5");
+		System.out.println("Ejercicio 7");
 		
-		FicherosTexto cinco = new FicherosTexto();
+		FicherosTexto siete = new FicherosTexto();
 		
-		System.out.println("El número de líneas que tiene el archivo son: "+cinco.contarLineas(archivo));
+		System.out.println("El número de total de palabras pentavocálicas son: "+siete.palabrasPentavocalica(archivo));
 		
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
+
 	
 	}
 }

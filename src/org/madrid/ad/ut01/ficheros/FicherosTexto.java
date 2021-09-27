@@ -33,17 +33,36 @@ public class FicherosTexto implements InterfazFicherosTexto{
 	@Override
 	public int contarLineas(String rutaFichero) {
 			
+		return 0;
+}
+
+	@Override
+	public int contarPalabras(String rutaFichero) {
+		
 		BufferedReader br = null;
-		int res = 1;
+		int res = 0;
 		String linea = null;
-			
+		String[] palabras = null;
+		boolean sino = false;
+		
 		try {
 			br = new BufferedReader(new FileReader (new File(rutaFichero)));
 			linea = br.readLine();
-				
+			
 			while (linea != null) {
-				res++;
-				linea=br.readLine();
+				palabras = linea.split(" "); //Separamos cada palabra con el método split(" ") en un array.
+				
+				for (int i=0; i<palabras.length; i++) { //Recorremos el array palabras 
+					if (palabras[i].toLowerCase().contains("a") && palabras[i].toLowerCase().contains("e") && palabras[i].toLowerCase().contains("i") && palabras[i].toLowerCase().contains("o") && palabras[i].toLowerCase().contains("u")){
+						sino = true; //Si la palabra contiene todas las vocales pasaremos la variable booleana a true
+					}
+					if (sino) { //Si la variable es true...
+						System.out.println(palabras[i]);
+						res++; //Sumaremos al contador +1
+						sino = false; //Volveremos a poner la variable booleana a false
+					}
+				}
+				linea=br.readLine(); //Leemos la siguiente línea.
 			}
 		}
 		catch (FileNotFoundException e) {
@@ -61,12 +80,6 @@ public class FicherosTexto implements InterfazFicherosTexto{
 			}
 		}
 		return res;
-}
-
-	@Override
-	public int contarPalabras(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override
