@@ -20,42 +20,14 @@ public class FicherosTexto implements InterfazFicherosTexto {
 
 	@Override
 	public void leer(String rutaFichero) {
-	
+
 	}
-	
+
 	@Override
 	public int contarCaracteres(String rutaFichero) {
 
-		BufferedReader br = null;
-		int cont = 0;
-
-		try {
-
-			br = new BufferedReader(new FileReader(rutaFichero));
-
-			String linea;
-
-			while ((linea = br.readLine()) != null) {
-
-				String contLinea = linea.replace(" ", "");
-				cont = cont + contLinea.length();
-
-			}
-
-		} catch (FileNotFoundException e) {
-			System.err.println("El fichero no ha sido encontrado ");
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		} finally {
-			try {
-				br.close();
-			} catch (IOException e) {
-				System.err.println(e.getMessage());
-			}
-		}
-
-		return cont;
-	}	
+		return 0;
+	}
 
 	@Override
 	public int contarLineas(String rutaFichero) {
@@ -66,8 +38,37 @@ public class FicherosTexto implements InterfazFicherosTexto {
 	@Override
 	public int contarPalabras(String rutaFichero) {
 
-		return 0;
-		
+		BufferedReader br = null;
+		int palabrasTotales = 0;
+
+		try {
+
+			br = new BufferedReader(new FileReader(rutaFichero));
+
+			String linea;
+
+			while ((linea = br.readLine()) != null) {
+
+				StringTokenizer st = new StringTokenizer(linea);
+
+				palabrasTotales = palabrasTotales + st.countTokens();
+
+			}
+
+		} catch (FileNotFoundException e) {
+			System.err.println("El fichero no ha sido encontrado");
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+
+		return palabrasTotales;
+
 	}
 
 	@Override
@@ -93,7 +94,7 @@ public class FicherosTexto implements InterfazFicherosTexto {
 	public int frecuenciaLetras(String rutaFichero) {
 
 		return 0;
-		
+
 	}
 
 }
