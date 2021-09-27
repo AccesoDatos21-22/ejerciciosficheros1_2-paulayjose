@@ -21,15 +21,22 @@ public class FicherosTexto implements InterfazFicherosTexto{
 	@Override
 	public void leer(String rutaFichero) {
 		
+		
+	}
+
+	@Override
+	public int contarCaracteres(String rutaFichero) {
+			
 		FileReader fr = null;
 		int caracter = 0;
-		
+		int res = 0;
+			
 		try {
 			fr = new FileReader(new File(rutaFichero));
 			caracter = fr.read();
-			
+						
 			while (caracter != -1) {
-				System.out.print((char) caracter);
+				res++;
 				caracter = fr.read();
 			}
 		}
@@ -47,13 +54,8 @@ public class FicherosTexto implements InterfazFicherosTexto{
 				System.err.println(e.getMessage());
 			}
 		}
-	}
-
-	@Override
-	public int contarCaracteres(String rutaFichero) {
-		
-		return 0;
-	}
+			return res;
+		}
 
 	@Override
 	public int contarLineas(String rutaFichero) {
