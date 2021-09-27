@@ -39,6 +39,11 @@ public class FicherosTexto implements InterfazFicherosTexto{
 	@Override
 	public int contarPalabras(String rutaFichero) {
 		
+		return 0;
+	}
+
+	@Override
+	public int palabrasPentavocalica(String rutaFichero) {
 		BufferedReader br = null;
 		int res = 0;
 		String linea = null;
@@ -80,12 +85,6 @@ public class FicherosTexto implements InterfazFicherosTexto{
 			}
 		}
 		return res;
-	}
-
-	@Override
-	public int palabrasPentavocalica(String rutaFichero) {
-		
-		return 0;
 	}
 
 	@Override
