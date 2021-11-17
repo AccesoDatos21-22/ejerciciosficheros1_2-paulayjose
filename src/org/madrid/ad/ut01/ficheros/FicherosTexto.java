@@ -28,7 +28,7 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		try {
 			fr = new FileReader(new File(rutaFichero));
 			caracter = fr.read();
-			
+
 			while (caracter != -1) {
 				System.out.print((char) caracter);
 				caracter = fr.read();
@@ -52,11 +52,11 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public int contarCaracteres(String rutaFichero) {
-
+			
 		FileReader fr = null;
 		int caracter = 0;
 		int res = 0;
-
+			
 		try {
 			fr = new FileReader(new File(rutaFichero));
 			caracter = fr.read();
@@ -80,14 +80,40 @@ public class FicherosTexto implements InterfazFicherosTexto{
 				System.err.println(e.getMessage());
 			}
 		}
-		return res;
-	}
-
+			return res;
+		}
 
 	@Override
 	public int contarLineas(String rutaFichero) {
-		
-		return 0;
+
+		BufferedReader br = null;
+		int res = 1;
+		String linea = null;
+
+		try {
+			br = new BufferedReader(new FileReader (new File(rutaFichero)));
+			linea = br.readLine();
+
+			while (linea != null) {
+				res++;
+				linea=br.readLine();
+			}
+		}
+		catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+		catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+		finally {
+			try {
+				br.close();
+			}
+			catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		return res;
 	}
 
 	@Override

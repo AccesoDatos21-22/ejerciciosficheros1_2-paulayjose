@@ -1,7 +1,5 @@
 package org.madrid.ad.ut01.ficheros;
 
-
-
 public class Main {
 	
 	public static void main(String[] args) {
@@ -37,6 +35,17 @@ public class Main {
 
 		System.out.println("El número de caracteres que tiene el archivo son: "+tres.contarCaracteres(archivo));
 
+		//Ejercicio 5
+		System.out.println("Ejercicio 5");
+
+		FicherosTexto cinco = new FicherosTexto();
+
+		System.out.println("El número de líneas que tiene el archivo son: "+cinco.contarLineas(archivo));
+
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
+
 		// Ejerccio 10
 		System.out.println("\n------------------------------------- \nEjercicio 10\n");
 
@@ -44,6 +53,6 @@ public class Main {
 
 		System.out.println("La frecuencia de las letras es: " + diez.frecuenciaLetras(archivo));
 
-	}
 
+	}
 }
