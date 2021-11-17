@@ -82,7 +82,18 @@ public class Main {
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
+		
+		//Ejercicio 8
+		System.out.println("\n------------------------------------- \nEjercicio 8\n");
+		
+		FicherosTexto ocho = new FicherosTexto();
+				
+		ocho.palabraMasLarga(archivo);
 
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
+		
 		// Ejerccio 10
 		System.out.println("\n------------------------------------- \nEjercicio 10\n");
 
