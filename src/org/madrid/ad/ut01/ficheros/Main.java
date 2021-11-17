@@ -51,7 +51,7 @@ public class Main {
 		System.out.println();
 
 		//Ejercicio 5
-		System.out.println("Ejercicio 5");
+		System.out.println("\n------------------------------------- \nEjercicio 5\n");
 
 		FicherosTexto cinco = new FicherosTexto();
 
@@ -60,9 +60,20 @@ public class Main {
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
+		
+		//Ejercicio 6
+		System.out.println("\n------------------------------------- \nEjercicio 6\n");
+		
+		FicherosTexto seis = new FicherosTexto();
+				
+		System.out.println("El fichero tiene " + seis.contarPalabras(archivo) + " palabras.");
+		
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
 
 		//Ejercicio 7
-		System.out.println("Ejercicio 7");
+		System.out.println("\n------------------------------------- \nEjercicio 7\n");
 
 		FicherosTexto siete = new FicherosTexto();
 
