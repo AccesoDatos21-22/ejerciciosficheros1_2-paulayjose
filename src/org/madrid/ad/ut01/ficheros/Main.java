@@ -17,10 +17,10 @@ public class Main {
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
 
-		FicherosTexto dos = new FicherosTexto();
-
 		//Ejercicio 2
 		System.out.println("\n------------------------------------- \nEjercicio 2\n");
+		
+		FicherosTexto dos = new FicherosTexto();
 
 		dos.leer(archivo);
 
@@ -78,17 +78,11 @@ public class Main {
 		FicherosTexto siete = new FicherosTexto();
 
 		System.out.println("El número de total de palabras pentavocálicas son: "+siete.palabrasPentavocalica(archivo));
-
-		//Ejercicio 9
-		System.out.println("Ejercicio 9");
-
-		FicherosTexto nueve = new FicherosTexto();
-		System.out.println("El número total de vocales es: "+nueve.frecuenciaVocales(archivo));
-
+		
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
-		
+
 		//Ejercicio 8
 		System.out.println("\n------------------------------------- \nEjercicio 8\n");
 		
@@ -100,13 +94,22 @@ public class Main {
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
 		
+		//Ejercicio 9
+		System.out.println("\n------------------------------------- \nEjercicio 9\n");
+
+		FicherosTexto nueve = new FicherosTexto();
+		
+		System.out.println("El número total de vocales es: "+nueve.frecuenciaVocales(archivo));
+
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
+		
 		// Ejerccio 10
 		System.out.println("\n------------------------------------- \nEjercicio 10\n");
 
 		FicherosTexto diez = new FicherosTexto();
 
 		System.out.println("La frecuencia de las letras es: " + diez.frecuenciaLetras(archivo));
-
-
 	}
 }
