@@ -34,18 +34,18 @@ public class Main {
 		FicherosTexto tres = new FicherosTexto();
 
 		System.out.println("El número de caracteres que tiene el archivo son: "+tres.contarCaracteres(archivo));
-		
+
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
-		
+
 		//Ejercicio 4
 		System.out.println("\n------------------------------------- \nEjercicio 4\n");
-		
+
 		FicherosTexto cuatro = new FicherosTexto();
 
 		System.out.println("El fichero tiene " + cuatro.contarCaracteres(archivo) + " caracteres visibles.");
-		
+
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
@@ -56,6 +56,17 @@ public class Main {
 		FicherosTexto cinco = new FicherosTexto();
 
 		System.out.println("El número de líneas que tiene el archivo son: "+cinco.contarLineas(archivo));
+
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
+
+		//Ejercicio 7
+		System.out.println("Ejercicio 7");
+
+		FicherosTexto siete = new FicherosTexto();
+
+		System.out.println("El número de total de palabras pentavocálicas son: "+siete.palabrasPentavocalica(archivo));
 
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
