@@ -36,6 +36,21 @@ public class Main {
 		FicherosTexto tres = new FicherosTexto();
 
 		System.out.println("El número de caracteres que tiene el archivo son: "+tres.contarCaracteres(archivo));
+		
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		//Ejercicio 4
+		System.out.println("\n------------------------------------- \nEjercicio 4\n");
+		
+		FicherosTexto cuatro = new FicherosTexto();
+
+		System.out.println("El fichero tiene " + cuatro.contarCaracteres(archivo) + " caracteres visibles.");
+		
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
 
 		// Ejerccio 10
 		System.out.println("\n------------------------------------- \nEjercicio 10\n");
