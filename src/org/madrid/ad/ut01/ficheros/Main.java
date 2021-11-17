@@ -8,7 +8,8 @@ public class Main {
 
 		String archivo = "src\\org\\madrid\\ad\\ut01\\ficheros\\assets\\el_quijote.txt";
 
-		System.out.println("Ejercicio 1");
+		//Ejercicio 1
+		System.out.println("\n------------------------------------- \nEjercicio 1\n");
 
 		FicherosTexto uno = new FicherosTexto();
 
