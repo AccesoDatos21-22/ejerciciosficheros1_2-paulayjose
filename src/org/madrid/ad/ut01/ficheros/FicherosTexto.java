@@ -1,11 +1,11 @@
 package org.madrid.ad.ut01.ficheros;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.StringTokenizer;
-import java.io.File;
 
 import org.madrid.ad.ut01.ficheros.interfaces.InterfazFicherosTexto;
 
@@ -21,14 +21,14 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public void leer(String rutaFichero) {
-
+		
 		FileReader fr = null;
 		int caracter = 0;
 
 		try {
 			fr = new FileReader(new File(rutaFichero));
 			caracter = fr.read();
-
+			
 			while (caracter != -1) {
 				System.out.print((char) caracter);
 				caracter = fr.read();
@@ -52,13 +52,41 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public int contarCaracteres(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		FileReader fr = null;
+		int caracter = 0;
+		int res = 0;
+
+		try {
+			fr = new FileReader(new File(rutaFichero));
+			caracter = fr.read();
+
+			while (caracter != -1) {
+				res++;
+				caracter = fr.read();
+			}
+		}
+		catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+		catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+		finally {
+			try {
+				fr.close();
+			}
+			catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		return res;
 	}
+
 
 	@Override
 	public int contarLineas(String rutaFichero) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
@@ -70,7 +98,7 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public int palabrasPentavocalica(String rutaFichero) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
@@ -82,7 +110,7 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public int frecuenciaVocales(String rutaFichero) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
@@ -121,5 +149,4 @@ public class FicherosTexto implements InterfazFicherosTexto{
 		return frecuencia;
 
 	}
-
 }

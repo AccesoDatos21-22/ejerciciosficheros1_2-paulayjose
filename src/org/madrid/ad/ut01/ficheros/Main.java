@@ -1,11 +1,9 @@
 package org.madrid.ad.ut01.ficheros;
 
-
-
 public class Main {
 	
 	public static void main(String[] args) {
-
+		
 		String archivo = "src\\org\\madrid\\ad\\ut01\\ficheros\\assets\\el_quijote.txt";
 
 		System.out.println("Ejercicio 1");
@@ -18,6 +16,12 @@ public class Main {
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
 
+		System.out.println("Ejercicio 3");
+
+		FicherosTexto tres = new FicherosTexto();
+
+		System.out.println("El número de caracteres que tiene el archivo son: "+tres.contarCaracteres(archivo));
+
 		FicherosTexto ej = new FicherosTexto();
 
 		// Ejerccio 10
@@ -26,5 +30,4 @@ public class Main {
 		System.out.println("La frecuencia de las letras es: " + ej.frecuenciaLetras(archivo));
 
 	}
-
 }
