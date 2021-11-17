@@ -121,8 +121,36 @@ public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public int contarPalabras(String rutaFichero) {
-		// TODO Auto-generated method stub
-		return 0;
+		BufferedReader br = null;
+		int palabrasTotales = 0;
+
+		try {
+
+			br = new BufferedReader(new FileReader(rutaFichero));
+
+			String linea;
+
+			while ((linea = br.readLine()) != null) {
+
+				StringTokenizer st = new StringTokenizer(linea);
+
+				palabrasTotales = palabrasTotales + st.countTokens();
+
+			}
+
+		} catch (FileNotFoundException e) {
+			System.err.println("El fichero no ha sido encontrado");
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+
+		return palabrasTotales;
 	}
 
 	@Override
