@@ -5,27 +5,54 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
+import java.io.File;
 
 import org.madrid.ad.ut01.ficheros.interfaces.InterfazFicherosTexto;
 
 /**
  * 
- * @author Escribe_aqui_tu_nombre
- * @date
- * @version
+ * @author Paula y Jose
+ * @date 27/09/2021
+ * @version 
  * @license GPLv3
  *
  */
-public class FicherosTexto implements InterfazFicherosTexto {
+public class FicherosTexto implements InterfazFicherosTexto{
 
 	@Override
 	public void leer(String rutaFichero) {
 
+		FileReader fr = null;
+		int caracter = 0;
+
+		try {
+			fr = new FileReader(new File(rutaFichero));
+			caracter = fr.read();
+
+			while (caracter != -1) {
+				System.out.print((char) caracter);
+				caracter = fr.read();
+			}
+		}
+		catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+		catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+		finally {
+			try {
+				fr.close();
+			}
+			catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
 	}
 
 	@Override
 	public int contarCaracteres(String rutaFichero) {
-
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -37,9 +64,8 @@ public class FicherosTexto implements InterfazFicherosTexto {
 
 	@Override
 	public int contarPalabras(String rutaFichero) {
-
+		// TODO Auto-generated method stub
 		return 0;
-
 	}
 
 	@Override
@@ -50,9 +76,8 @@ public class FicherosTexto implements InterfazFicherosTexto {
 
 	@Override
 	public int palabraMasLarga(String rutaFichero) {
-
+		// TODO Auto-generated method stub
 		return 0;
-
 	}
 
 	@Override
