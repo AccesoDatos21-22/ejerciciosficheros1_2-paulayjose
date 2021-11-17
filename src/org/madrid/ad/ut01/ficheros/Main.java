@@ -68,6 +68,12 @@ public class Main {
 
 		System.out.println("El número de total de palabras pentavocálicas son: "+siete.palabrasPentavocalica(archivo));
 
+		//Ejercicio 9
+		System.out.println("Ejercicio 9");
+
+		FicherosTexto nueve = new FicherosTexto();
+		System.out.println("El número total de vocales es: "+nueve.frecuenciaVocales(archivo));
+
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
