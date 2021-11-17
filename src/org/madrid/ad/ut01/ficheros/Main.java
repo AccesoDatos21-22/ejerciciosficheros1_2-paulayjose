@@ -17,13 +17,24 @@ public class Main {
 		System.out.println();
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println();
+		
+		FicherosTexto dos = new FicherosTexto();
+		
+		//Ejercicio 2
+		System.out.println("\n------------------------------------- \nEjercicio 2\n");
+		
+		dos.leer(archivo);
+		
+		System.out.println();
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println();
 
-		FicherosTexto ej = new FicherosTexto();
+		FicherosTexto diez = new FicherosTexto();
 
 		// Ejerccio 10
 		System.out.println("\n------------------------------------- \nEjercicio 10\n");
 
-		System.out.println("La frecuencia de las letras es: " + ej.frecuenciaLetras(archivo));
+		System.out.println("La frecuencia de las letras es: " + diez.frecuenciaLetras(archivo));
 
 	}
 
